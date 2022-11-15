@@ -1,7 +1,5 @@
 <template>
     <div>
-        <!--Hey! This is the original version
-        of Simple CSS Waves-->
         <div class="header">
             <div class="inner-header">
                 <div class="logo" >
@@ -42,7 +40,6 @@
 
 <script setup>
 import AuthService from '@/service/auth.service'
-import axios from 'axios'
 import { ref } from 'vue';
 const form = ref({
     username: "",
@@ -52,7 +49,6 @@ const setTokent = (e) => {
     e.preventDefault();  
     if(form.value.password && form.value.username) {
         AuthService.login(form.value).then(res => {
-            console.log(res)
         }).catch(e => {
             alert(e.message)
         })
@@ -176,6 +172,9 @@ form.box {
 }
 input[type="username"], input[type="password"]{
   border-radius:8px;
+  width: 80%;
+  padding: 20px;
+  margin-top: 10px;
   border:1px solid white;
   color:white !important;
   background:transparent;
@@ -193,10 +192,16 @@ input[type="username"]::placeholder, input[type="password"]::placeholder{
   color:white;
 }
 input[type="submit"]{
-  width:100%;
-  border-radius:8px;
+  width:80%;
+  padding: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+  background: transparent;
+  border: .5px solid white;
+  color: white;
+  border-radius:15px;
   text-transform:uppercase;
-  font-weight:bold;
-  font-size:14px;
+  font-weight:400;
+  letter-spacing: 1px;
 }
 </style>

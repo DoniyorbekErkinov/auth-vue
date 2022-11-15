@@ -24,12 +24,12 @@ const AuthService = {
     login: async function (user) {
       await ApiService.post(`/api/v.1/auth-payload`, user).then(res => {
         TokenService.setToken(res.data.token)
-        TokenService.setUser({
-            username: res.data.username,
-            id: res.data.id,
-            deparmtnetId: res.data.department,
-            role: res.data.roles.name,
-        })
+        TokenService.setUser(JSON.stringify({
+          username: res.data.username,
+          id: res.data.id,
+          deparmtnetId: res.data.department,
+          role: res.data.roles.name,
+      }))
         TokenService.setPermissions(res.data.roles.permissions)
         router.push('/')
       })  

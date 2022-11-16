@@ -1,4 +1,4 @@
-# basconi-front
+# Authintification with routers and mainpage
 
 ## Project setup
 ```
